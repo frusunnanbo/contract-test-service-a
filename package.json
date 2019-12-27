@@ -1,0 +1,16 @@
+{
+  "name": "service2",
+  "version": "1.0.0",
+  "description": "Contract test demo client.",
+  "main": "app.js",
+  "repository": "https://github.com/frusunnanbo/contract-test-client2",
+  "author": "Pia Fåk Sunnnanbo",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
