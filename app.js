@@ -1,7 +1,18 @@
 const app = require('express')();
+const expressHbs = require('express-handlebars');
+
 const { getStuff } = require('./apiClient');
 
-app.get('/', (request, response) => response.send('Service 2'));
+app.engine('handlebars', expressHbs());
+app.set('view engine', 'handlebars');
+app.get('/', async (request, response) => {
+    response.render('animals',
+            {
+                layout: false,
+                animals: await getStuff()
+            });
+});
+
 app.get('/stuff', (request, response) => getStuff()
         .then((stuff) => response
                 .json(stuff))
