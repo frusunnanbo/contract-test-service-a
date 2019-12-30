@@ -8,7 +8,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "API_LOCATION='http://localhost:8080' nodemon app.js"
+    "test:pact": "API_ENDPOINT='http://localhost:2345' jest --runInBand",
+    "start": "API_ENDPOINT='http://localhost:8080' nodemon app.js"
   },
   "dependencies": {
     "express": "^4.17.1",
@@ -16,5 +17,10 @@
     "nodemon": "^2.0.2",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.8"
+  },
+  "devDependencies": {
+    "@pact-foundation/pact": "^9.5.1",
+    "jest": "^24.9.0",
+    "jest-extended": "^0.11.2"
   }
 }

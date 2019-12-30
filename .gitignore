@@ -3,3 +3,6 @@
 
 # downloaded dependencies
 node_modules
+
+#pact logs
+logs

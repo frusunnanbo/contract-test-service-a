@@ -1,6 +1,6 @@
 const request = require('request-promise-native');
 
-const API_URL = process.env.API_LOCATION + '/stuff';
+const API_URL = process.env.API_ENDPOINT+ '/stuff';
 
 const options = {
     uri: API_URL,
