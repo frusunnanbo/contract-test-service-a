@@ -33,7 +33,7 @@ describe('Contract with Animal API', () => {
                             }),
                     status: 200,
                     headers: {
-                        'Content-Type': 'application/json; charset=utf-8',
+                        'Content-Type': 'application/json',
                     },
                 }
             };
