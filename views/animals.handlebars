@@ -14,16 +14,12 @@
 <div class="container">
     <div class="card-deck">
         {{#each animals}}
-            <div class="col-6">
-                <div class="card m-3" id="animal-{{@index}}">
-                    <h5 class="card-header">
+            <div class="col-3">
+                <div class="card m-2" id="animal-{{@index}}">
+                    <img src="{{kind}}.jpg" class="card-img-top" alt="{{kind}}">
+                    <h5 class="card-body">
                         {{name}}
                     </h5>
-
-                    <div class="card-header">
-                        {{kind}}
-                    </div>
-
 
                 </div>
             </div>

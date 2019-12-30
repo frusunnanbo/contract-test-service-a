@@ -1,7 +1,11 @@
-const app = require('express')();
+const express = require('express');
 const expressHbs = require('express-handlebars');
 
 const { getStuff } = require('./apiClient');
+
+const app = express();
+
+app.use(express.static('static'));
 
 app.engine('handlebars', expressHbs());
 app.set('view engine', 'handlebars');
