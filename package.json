@@ -9,6 +9,7 @@
   "private": true,
   "scripts": {
     "test:pact": "API_ENDPOINT='http://localhost:2345' jest --runInBand",
+    "test:pact:publish": "node publish.js",
     "start": "API_ENDPOINT='http://localhost:8080' nodemon app.js"
   },
   "dependencies": {
