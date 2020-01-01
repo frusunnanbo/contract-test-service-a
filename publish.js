@@ -3,7 +3,8 @@ const path = require('path');
 
 const opts = {
     pactFilesOrDirs: [path.resolve(__dirname, './pacts/')],
-    pactBroker: 'http://localhost:9292',
+    pactBroker: 'https://frusunnanbo.pact.dius.com.au/',
+    pactBrokerToken: process.env.PACT_BROKER_TOKEN,
     consumerVersion: '1.0.0'
 };
 
