@@ -8,7 +8,7 @@ const opts = {
     pactFilesOrDirs: [path.resolve(__dirname, './pacts/')],
     pactBroker: 'https://frusunnanbo.pact.dius.com.au/',
     pactBrokerToken: process.env.PACT_BROKER_TOKEN,
-    consumerVersion: `1.0.0-${gitVersion}`
+    consumerVersion: `${process.env.npm_package_version}-${gitVersion}`
 };
 
 pact.publishPacts(opts)
