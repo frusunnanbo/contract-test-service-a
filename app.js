@@ -3,6 +3,8 @@ const expressHbs = require('express-handlebars');
 
 const { getStuff } = require('./apiClient');
 
+const port = process.env.PORT || 3002
+
 const app = express();
 
 app.use(express.static('static'));
@@ -24,4 +26,4 @@ app.get('/stuff', (request, response) => getStuff()
                 response.status(500)
                 .send(`failed to get stuff: ${err.stack}`)));
 
-app.listen(3002, console.log('Listening on 3002'));
+app.listen(port, console.log(`Listening on ${port}`));
