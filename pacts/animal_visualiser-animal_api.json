@@ -10,7 +10,7 @@
       "description": "a request for animals",
       "request": {
         "method": "GET",
-        "path": "/stuff"
+        "path": "/animals"
       },
       "response": {
         "status": 200,
