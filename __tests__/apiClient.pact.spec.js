@@ -20,7 +20,7 @@ describe('Contract with Animal API', () => {
             const interaction = {
                 uponReceiving: 'a request for animals',
                 withRequest: {
-                    path: '/stuff',
+                    path: '/animals',
                     method: 'GET',
                 },
                 willRespondWith: {
