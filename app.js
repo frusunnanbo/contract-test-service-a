@@ -3,7 +3,7 @@ const expressHbs = require('express-handlebars');
 
 const { getStuff } = require('./apiClient');
 
-const port = process.env.PORT || 3002
+const port = process.env.PORT || 3001
 
 const app = express();
 

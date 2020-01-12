@@ -16,11 +16,11 @@
         {{#each animals}}
             <div class="col-3">
                 <div class="card m-2" id="animal-{{@index}}">
-                    <img src="{{kind}}.jpg" class="card-img-top" alt="{{kind}}">
-                    <h5 class="card-body">
-                        {{name}}
-                    </h5>
-
+                    <img src="{{image}}" class="card-img-top" alt="A picture of {{name}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{name}}</h5>
+                        <p class="card-text">Some facts about {{name}}</p>
+                    </div>
                 </div>
             </div>
         {{/each}}
