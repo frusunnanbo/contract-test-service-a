@@ -1,6 +1,6 @@
 const path = require('path');
 const {Pact, Matchers} = require('@pact-foundation/pact');
-const {getStuff} = require('../apiClient');
+const {fetchAnimals} = require('../apiClient');
 
 const provider = new Pact({
     consumer: 'Service A',
@@ -51,7 +51,7 @@ describe('Contract with Service C', () => {
         });
 
         it('will receive a list of animals with pictures', () => {
-            return expect(getStuff()).resolves.toIncludeSameMembers([
+            return expect(fetchAnimals()).resolves.toIncludeSameMembers([
                         expect.toContainAllKeys(['name', 'kind', 'image']),
                         expect.toContainAllKeys(['name', 'kind', 'image']),
                         expect.toContainAllKeys(['name', 'kind', 'image']),
