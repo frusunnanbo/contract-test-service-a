@@ -1,6 +1,6 @@
 const path = require('path');
-const { Pact, Matchers } = require('@pact-foundation/pact');
-const { getStuff } = require('../apiClient');
+const {Pact, Matchers} = require('@pact-foundation/pact');
+const {getStuff} = require('../apiClient');
 
 const provider = new Pact({
     consumer: 'Service A',
@@ -25,13 +25,17 @@ describe('Contract with Service C', () => {
                 },
                 willRespondWith: {
                     body: Matchers.eachLike({
-                        name: "Joy",
-                        kind: "hedgehog",
-                        image: {
-                            path: "/path/to/image"
-                        },
-                        funFact: "A fun fact about Joy"
-                    },
+                                name: "Joy",
+                                kind: "hedgehog",
+                                image: {
+                                    path: "/path/to/image"
+                                },
+                                foodSchedule: {
+                                    morning: "Some insects. 10 worms. 1/4 apple",
+                                    lunch: "Some insects. 10 worms. 1/4 apple",
+                                    evening: "Some insects. 10 worms. 1/4 apple"
+                                },
+                            },
                             {
                                 min: 3
                             }),
@@ -48,10 +52,10 @@ describe('Contract with Service C', () => {
 
         it('will receive a list of animals with pictures', () => {
             return expect(getStuff()).resolves.toIncludeSameMembers([
-                expect.toContainAllKeys(['name','kind']),
-                expect.toContainAllKeys(['name','kind']),
-                expect.toContainAllKeys(['name','kind']),
-            ]
+                        expect.toContainAllKeys(['name', 'kind', 'image']),
+                        expect.toContainAllKeys(['name', 'kind', 'image']),
+                        expect.toContainAllKeys(['name', 'kind', 'image']),
+                    ]
             );
         });
 

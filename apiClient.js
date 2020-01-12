@@ -10,7 +10,8 @@ const options = {
 function toVisitorInformation(animal) {
     return {
         name: animal.name,
-        kind: animal.kind
+        kind: animal.kind,
+        image: process.env.API_ENDPOINT + animal.image.path
     }
 }
 
