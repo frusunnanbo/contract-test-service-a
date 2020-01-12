@@ -27,6 +27,10 @@ describe('Contract with Service C', () => {
                     body: Matchers.eachLike({
                         name: "Joy",
                         kind: "hedgehog",
+                        image: {
+                            path: "/path/to/image"
+                        },
+                        funFact: "A fun fact about Joy"
                     },
                             {
                                 min: 3
