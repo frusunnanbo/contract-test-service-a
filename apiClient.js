@@ -15,12 +15,12 @@ function toVisitorInformation(animal) {
     }
 }
 
-function getStuff() {
+function fetchAnimals() {
     return request(options)
             .then((animals) => animals.map((animal) => toVisitorInformation(animal)))
             .catch(`Failed to fetch animals from ${API_URL}`)
 }
 
 module.exports = {
-  getStuff
+  fetchAnimals
 };

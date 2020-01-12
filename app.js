@@ -1,9 +1,9 @@
 const express = require('express');
 const expressHbs = require('express-handlebars');
 
-const { getStuff } = require('./apiClient');
+const { fetchAnimals } = require('./apiClient');
 
-const port = process.env.PORT || 3001
+const port = process.env.PORT || 3001;
 
 const app = express();
 
@@ -15,15 +15,19 @@ app.get('/', async (request, response) => {
     response.render('animals',
             {
                 layout: false,
-                animals: await getStuff()
+                animals: await fetchAnimals(request.query.kind)
             });
 });
 
-app.get('/stuff', (request, response) => getStuff()
-        .then((stuff) => response
-                .json(stuff))
-        .catch((err) =>
-                response.status(500)
-                .send(`failed to get stuff: ${err.stack}`)));
+app.get('/animals', (request, response) => getAnimals(request, response));
 
 app.listen(port, console.log(`Listening on ${port}`));
+
+function getAnimals(request, response) {
+    fetchAnimals(request.query.kind)
+            .then((stuff) => response
+                    .json(stuff))
+            .catch((err) =>
+                    response.status(500)
+                            .send(`failed to get animals: ${err.stack}`));
+}
