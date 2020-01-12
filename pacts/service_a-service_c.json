@@ -10,7 +10,8 @@
       "description": "a request for animals",
       "request": {
         "method": "GET",
-        "path": "/animals"
+        "path": "/animals",
+        "query": "kind=hedgehog"
       },
       "response": {
         "status": 200,
@@ -41,23 +42,11 @@
               "lunch": "Some insects. 10 worms. 1/4 apple",
               "evening": "Some insects. 10 worms. 1/4 apple"
             }
-          },
-          {
-            "name": "Joy",
-            "kind": "hedgehog",
-            "image": {
-              "path": "/path/to/image"
-            },
-            "foodSchedule": {
-              "morning": "Some insects. 10 worms. 1/4 apple",
-              "lunch": "Some insects. 10 worms. 1/4 apple",
-              "evening": "Some insects. 10 worms. 1/4 apple"
-            }
           }
         ],
         "matchingRules": {
           "$.body": {
-            "min": 3
+            "min": 2
           },
           "$.body[*].*": {
             "match": "type"

@@ -22,6 +22,7 @@ describe('Contract with Service C', () => {
                 withRequest: {
                     path: '/animals',
                     method: 'GET',
+                    query: 'kind=hedgehog'
                 },
                 willRespondWith: {
                     body: Matchers.eachLike({
@@ -37,7 +38,7 @@ describe('Contract with Service C', () => {
                                 },
                             },
                             {
-                                min: 3
+                                min: 2
                             }),
                     status: 200,
                     headers: {
@@ -51,8 +52,7 @@ describe('Contract with Service C', () => {
         });
 
         it('will receive a list of animals with pictures', () => {
-            return expect(fetchAnimals()).resolves.toIncludeSameMembers([
-                        expect.toContainAllKeys(['name', 'kind', 'image']),
+            return expect(fetchAnimals('hedgehog')).resolves.toIncludeSameMembers([ 
                         expect.toContainAllKeys(['name', 'kind', 'image']),
                         expect.toContainAllKeys(['name', 'kind', 'image']),
                     ]
