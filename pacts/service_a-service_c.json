@@ -1,9 +1,9 @@
 {
   "consumer": {
-    "name": "Animal Visualiser"
+    "name": "Service A"
   },
   "provider": {
-    "name": "Animal API"
+    "name": "Service C"
   },
   "interactions": [
     {
@@ -20,15 +20,27 @@
         "body": [
           {
             "name": "Joy",
-            "kind": "hedgehog"
+            "kind": "hedgehog",
+            "image": {
+              "path": "/path/to/image"
+            },
+            "funFact": "A fun fact about Joy"
           },
           {
             "name": "Joy",
-            "kind": "hedgehog"
+            "kind": "hedgehog",
+            "image": {
+              "path": "/path/to/image"
+            },
+            "funFact": "A fun fact about Joy"
           },
           {
             "name": "Joy",
-            "kind": "hedgehog"
+            "kind": "hedgehog",
+            "image": {
+              "path": "/path/to/image"
+            },
+            "funFact": "A fun fact about Joy"
           }
         ],
         "matchingRules": {
