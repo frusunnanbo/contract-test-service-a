@@ -14,11 +14,11 @@ const provider = new Pact({
 });
 
 const hedgehogMatcher = {
-    name: like("Joy"),
-    kind: "hedgehog",
+    name: like('Joy'),
+    kind: 'hedgehog',
     age: like(4),
     image: like({
-        path: "/path/to/image"
+        path: '/path/to/image'
     }),
 };
 
