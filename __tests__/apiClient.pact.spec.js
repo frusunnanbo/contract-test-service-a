@@ -44,6 +44,7 @@ describe('Contract with Service C', () => {
                         image: like({
                             path: "/path/to/image"
                         }),
+                        somethingUnknown: "whateva",
                         foodSchedule: like({
                             morning: "Some insects. 10 worms. 1/4 apple",
                             lunch: "Some insects. 10 worms. 1/4 apple",

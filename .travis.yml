@@ -2,8 +2,9 @@ language: node_js
 
 script:
   - yarn test
-  - yarn test:pact
-  - yarn test:pact:publish
+  - yarn pact
+  - yarn pact:publish
+  - yarn pact:can-i-deploy
 
 deploy:
   provider: heroku
