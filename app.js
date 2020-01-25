@@ -1,5 +1,6 @@
 const express = require('express');
 const expressHbs = require('express-handlebars');
+const log  = require('debug')('service-a:app');
 
 const { fetchAnimals } = require('./serviceCClient');
 
@@ -21,7 +22,7 @@ app.get('/', async (request, response) => {
 
 app.get('/animals', (request, response) => getAnimals(request, response));
 
-app.listen(port, console.log(`Listening on ${port}`));
+app.listen(port, log(`Listening on ${port}`));
 
 function getAnimals(request, response) {
     fetchAnimals(request.query.kind)

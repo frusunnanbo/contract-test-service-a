@@ -12,10 +12,11 @@
     "pact": "API_ENDPOINT='http://localhost:2345' jest --runInBand --testPathPattern=.*.pact.spec.js",
     "pact:publish": "node publish.js",
     "pact:can-i-deploy": "pact-broker can-i-deploy --pacticipant 'Service A' --latest --broker-base-url https://frusunnanbo.pact.dius.com.au --retry-while-unknown=300",
-    "dev": "API_ENDPOINT='http://contract-test-service-c.herokuapp.com' nodemon app.js",
+    "dev": "DEBUG=service-a* API_ENDPOINT='http://contract-test-service-c.herokuapp.com' nodemon app.js",
     "start": "node app.js"
   },
   "dependencies": {
+    "debug": "^4.1.1",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
     "nodemon": "^2.0.2",
