@@ -8,6 +8,7 @@
   "interactions": [
     {
       "description": "a request for animals",
+      "providerState": "there are 2 hedgehogs and 1 cat",
       "request": {
         "method": "GET",
         "path": "/animals",
@@ -45,10 +46,22 @@
           }
         ],
         "matchingRules": {
-          "$.body": {
-            "min": 2
+          "$.body[0].name": {
+            "match": "type"
           },
-          "$.body[*].*": {
+          "$.body[0].image": {
+            "match": "type"
+          },
+          "$.body[0].foodSchedule": {
+            "match": "type"
+          },
+          "$.body[1].name": {
+            "match": "type"
+          },
+          "$.body[1].image": {
+            "match": "type"
+          },
+          "$.body[1].foodSchedule": {
             "match": "type"
           }
         }
