@@ -13,6 +13,15 @@ const provider = new Pact({
     spec: 2
 });
 
+const hedgehogMatcher = {
+    name: like("Joy"),
+    kind: "hedgehog",
+    age: like(4),
+    image: like({
+        path: "/path/to/image"
+    }),
+};
+
 describe('Contract with Service C', () => {
 
     describe('when a call to get animals is made', () => {
@@ -27,32 +36,7 @@ describe('Contract with Service C', () => {
                     query: 'kind=hedgehog'
                 },
                 willRespondWith: {
-                    body: [{
-                        name: like("Joy"),
-                        kind: "hedgehog",
-                        image: like({
-                            path: "/path/to/image"
-                        }),
-                        funFact: like("likes to be scratched on her belly"),
-                        foodSchedule: like({
-                            morning: "Some insects. 10 worms. 1/4 apple",
-                            lunch: "Some insects. 10 worms. 1/4 apple",
-                            evening: "Some insects. 10 worms. 1/4 apple"
-                        }),
-                    }, {
-                        name: like("Joy"),
-                        kind: "hedgehog",
-                        image: like({
-                            path: "/path/to/image"
-                        }),
-                        //funFact: like("likes to be scratched on her belly"),
-                        foodSchedule: like({
-                            morning: "Some insects. 10 worms. 1/4 apple",
-                            lunch: "Some insects. 10 worms. 1/4 apple",
-                            evening: "Some insects. 10 worms. 1/4 apple"
-                        }),
-                    },
-                    ],
+                    body: [hedgehogMatcher, hedgehogMatcher],
                     status: 200,
                     headers: {
                         'Content-Type': 'application/json',
@@ -65,11 +49,14 @@ describe('Contract with Service C', () => {
         });
 
         it('will receive a list of hedgehogs with pictures', () => {
-            return expect(fetchAnimals('hedgehog')).resolves.toIncludeSameMembers([
-                        expect.toContainAllEntries([['name', expect.any(String)], ['kind', 'hedgehog'], ['image', expect.any(String)]]),
-                        expect.toContainAllKeys(['name', 'kind', 'image']),
-                    ]
-            );
+            const serviceAAnimalMatcher = expect.toContainAllEntries([
+                ['name', expect.any(String)],
+                ['age', expect.any(Number)],
+                ['image', expect.any(String)],
+                ['description', expect.any(String)]]);
+            return expect(fetchAnimals('hedgehog'))
+                    .resolves
+                    .toIncludeSameMembers([serviceAAnimalMatcher, serviceAAnimalMatcher]);
         });
 
         afterEach(() => {

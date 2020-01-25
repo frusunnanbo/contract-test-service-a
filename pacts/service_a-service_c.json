@@ -23,25 +23,17 @@
           {
             "name": "Joy",
             "kind": "hedgehog",
+            "age": 4,
             "image": {
               "path": "/path/to/image"
-            },
-            "foodSchedule": {
-              "morning": "Some insects. 10 worms. 1/4 apple",
-              "lunch": "Some insects. 10 worms. 1/4 apple",
-              "evening": "Some insects. 10 worms. 1/4 apple"
             }
           },
           {
             "name": "Joy",
             "kind": "hedgehog",
+            "age": 4,
             "image": {
               "path": "/path/to/image"
-            },
-            "foodSchedule": {
-              "morning": "Some insects. 10 worms. 1/4 apple",
-              "lunch": "Some insects. 10 worms. 1/4 apple",
-              "evening": "Some insects. 10 worms. 1/4 apple"
             }
           }
         ],
@@ -49,19 +41,19 @@
           "$.body[0].name": {
             "match": "type"
           },
-          "$.body[0].image": {
+          "$.body[0].age": {
             "match": "type"
           },
-          "$.body[0].foodSchedule": {
+          "$.body[0].image": {
             "match": "type"
           },
           "$.body[1].name": {
             "match": "type"
           },
-          "$.body[1].image": {
+          "$.body[1].age": {
             "match": "type"
           },
-          "$.body[1].foodSchedule": {
+          "$.body[1].image": {
             "match": "type"
           }
         }
