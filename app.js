@@ -1,7 +1,7 @@
 const express = require('express');
 const expressHbs = require('express-handlebars');
 
-const { fetchAnimals } = require('./apiClient');
+const { fetchAnimals } = require('./serviceCClient');
 
 const port = process.env.PORT || 3001;
 

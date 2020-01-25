@@ -1,7 +1,7 @@
 const path = require('path');
 const {Pact, Matchers} = require('@pact-foundation/pact');
 const {like} = Matchers;
-const {fetchAnimals} = require('../apiClient');
+const {fetchAnimals} = require('../serviceCClient');
 
 const provider = new Pact({
     consumer: 'Service A',
