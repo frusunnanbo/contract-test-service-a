@@ -11,7 +11,7 @@
       "providerState": "there are 2 hedgehogs and 1 cat",
       "request": {
         "method": "GET",
-        "path": "/animals",
+        "path": "/",
         "query": "kind=hedgehog"
       },
       "response": {
@@ -24,6 +24,7 @@
             "name": "Joy",
             "kind": "hedgehog",
             "age": 4,
+            "description": "This is a description of Joy",
             "image": {
               "path": "/path/to/image"
             }
@@ -32,6 +33,7 @@
             "name": "Joy",
             "kind": "hedgehog",
             "age": 4,
+            "description": "This is a description of Joy",
             "image": {
               "path": "/path/to/image"
             }
@@ -44,6 +46,9 @@
           "$.body[0].age": {
             "match": "type"
           },
+          "$.body[0].description": {
+            "match": "type"
+          },
           "$.body[0].image": {
             "match": "type"
           },
@@ -51,6 +56,9 @@
             "match": "type"
           },
           "$.body[1].age": {
+            "match": "type"
+          },
+          "$.body[1].description": {
             "match": "type"
           },
           "$.body[1].image": {

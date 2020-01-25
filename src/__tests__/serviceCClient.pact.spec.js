@@ -17,6 +17,7 @@ const hedgehogMatcher = {
     name: like('Joy'),
     kind: 'hedgehog',
     age: like(4),
+    description: like('This is a description of Joy'),
     image: like({
         path: '/path/to/image'
     }),
