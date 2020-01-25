@@ -15,7 +15,7 @@ function getRequestWithQueryString(kind) {
         uri: API_URL,
         json: true,
         qs: {
-            kind: 'hedgehog'
+            kind: kind
         },
     };
 }
