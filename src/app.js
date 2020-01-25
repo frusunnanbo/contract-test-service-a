@@ -16,6 +16,7 @@ app.get('/', async (request, response) => {
     response.render('animals',
             {
                 layout: false,
+                kind: request.query.kind || 'animal',
                 animals: await fetchAnimals(request.query.kind)
             });
 });
