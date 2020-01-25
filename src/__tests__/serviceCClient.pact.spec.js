@@ -31,7 +31,7 @@ describe('Contract with Service C', () => {
                 state: 'there are 2 hedgehogs and 1 cat',
                 uponReceiving: 'a request for animals',
                 withRequest: {
-                    path: '/animals',
+                    path: '/',
                     method: 'GET',
                     query: 'kind=hedgehog'
                 },

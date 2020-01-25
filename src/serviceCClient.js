@@ -1,6 +1,6 @@
 const request = require('request-promise-native');
 
-const API_URL = process.env.API_ENDPOINT+ '/animals';
+const API_URL = process.env.API_ENDPOINT+ '/';
 
 function toVisitorInformation(animal) {
     return {
