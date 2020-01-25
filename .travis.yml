@@ -2,7 +2,7 @@ language: node_js
 
 script:
   - yarn test
-  - yarn pact
+  - yarn pact:test
   - yarn pact:publish
   - yarn pact:can-i-deploy
 
