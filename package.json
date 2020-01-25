@@ -1,5 +1,5 @@
 {
-  "name": "service2",
+  "name": "ServiceA",
   "version": "1.0.0",
   "description": "Contract test demo client.",
   "main": "app.js",
@@ -9,8 +9,9 @@
   "private": true,
   "scripts": {
     "test": "jest --testPathIgnorePatterns=[.*.pact.spec.js,/node_modules/] --passWithNoTests",
-    "test:pact": "API_ENDPOINT='http://localhost:2345' jest --runInBand --testPathPattern=.*.pact.spec.js",
-    "test:pact:publish": "node publish.js",
+    "pact": "API_ENDPOINT='http://localhost:2345' jest --runInBand --testPathPattern=.*.pact.spec.js",
+    "pact:publish": "node publish.js",
+    "pact:can-i-deploy": "pact-broker can-i-deploy --pacticipant 'Service A' --latest --broker-base-url https://frusunnanbo.pact.dius.com.au",
     "dev": "nodemon app.js",
     "start": "node app.js"
   },
