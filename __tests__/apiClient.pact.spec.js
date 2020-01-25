@@ -33,6 +33,7 @@ describe('Contract with Service C', () => {
                         image: like({
                             path: "/path/to/image"
                         }),
+                        funFact: like("likes to be scratched on her belly"),
                         foodSchedule: like({
                             morning: "Some insects. 10 worms. 1/4 apple",
                             lunch: "Some insects. 10 worms. 1/4 apple",
@@ -44,7 +45,7 @@ describe('Contract with Service C', () => {
                         image: like({
                             path: "/path/to/image"
                         }),
-                        somethingUnknown: "whateva",
+                        funFact: like("likes to be scratched on her belly"),
                         foodSchedule: like({
                             morning: "Some insects. 10 worms. 1/4 apple",
                             lunch: "Some insects. 10 worms. 1/4 apple",
