@@ -3,15 +3,12 @@
   "version": "1.0.0",
   "description": "Contract test demo client.",
   "main": "src/app.js",
-  "repository": "https://github.com/frusunnanbo/contract-test-client2",
+  "repository": "https://github.com/frusunnanbo/contract-test-service-a",
   "author": "Pia Fåk Sunnnanbo",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "test": "jest --testPathIgnorePatterns=[.*.pact.spec.js,/node_modules/] --passWithNoTests",
-    "pact:test": "API_ENDPOINT='http://localhost:2345' jest --runInBand --testPathPattern=.*.pact.spec.js",
-    "pact:publish": "node publish.js",
-    "pact:can-i-deploy": "pact-broker can-i-deploy --pacticipant 'Service A' --latest --broker-base-url https://frusunnanbo.pact.dius.com.au --retry-while-unknown=300",
+    "test": "jest --passWithNoTests",
     "dev": "DEBUG=service-a* API_ENDPOINT='http://contract-test-service-c.herokuapp.com' nodemon src/app.js",
     "start": "DEBUG=service-a* node src/app.js"
   },
@@ -24,7 +21,6 @@
     "request-promise-native": "^1.0.8"
   },
   "devDependencies": {
-    "@pact-foundation/pact": "^9.5.1",
     "jest": "^24.9.0",
     "jest-extended": "^0.11.2"
   }
