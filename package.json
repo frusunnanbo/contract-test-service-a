@@ -8,7 +8,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "test": "jest --passWithNoTests",
+    "test": "jest --testPathIgnorePatterns=[.*.pact.spec.js,/node_modules/] --passWithNoTests",
+    "pact:test": "API_ENDPOINT='http://localhost:2345' jest --runInBand --testPathPattern=.*.pact.spec.js",
     "dev": "DEBUG=service-a* API_ENDPOINT='http://localhost:8080' nodemon src/app.js",
     "start": "DEBUG=service-a* node src/app.js"
   },
@@ -21,6 +22,7 @@
     "request-promise-native": "^1.0.8"
   },
   "devDependencies": {
+    "@pact-foundation/pact": "^9.6.1",
     "jest": "^24.9.0",
     "jest-extended": "^0.11.2"
   }
