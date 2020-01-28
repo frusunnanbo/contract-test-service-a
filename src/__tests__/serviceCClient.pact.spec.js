@@ -1,6 +1,6 @@
 const path = require('path');
 const {Pact, Matchers} = require('@pact-foundation/pact');
-const {like} = Matchers;
+const {like, eachLike } = Matchers;
 const {fetchAnimals} = require('../serviceCClient');
 
 const provider = new Pact({
@@ -23,11 +23,61 @@ const hedgehogMatcher = {
     }),
 };
 
-describe('Contract with Service C', () => {
-    describe('when a request for animals is made', () => {
+const animalMatcher = {
+    name: like('Hufflepuff'),
+    kind: like('cat'),
+    age: like(4),
+    description: like('This is a description of Hufflepuff'),
+    image: like({
+        path: '/path/to/image'
+    }),
+};
 
-        beforeEach(() => {
-            const interactionWithFilter = {
+describe('Contract with Service C', () => {
+    beforeAll(() => {
+        return provider.setup()
+    });
+
+    describe('when a request for all animals is made', () => {
+        beforeAll(() => {
+            const allAnimalsInteraction = {
+                state: 'there are >= 3 animals',
+                uponReceiving: 'a request for animals',
+                withRequest: {
+                    path: '/',
+                    method: 'GET'
+                },
+                willRespondWith: {
+                    body: eachLike(animalMatcher, { min: 3}),
+                    status: 200,
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                }
+            };
+            return provider.addInteraction(allAnimalsInteraction);
+        });
+
+        it('can process the JSON payload from the provider', () => {
+            const serviceAAnimalMatcher = expect.toContainAllEntries([
+                ['name', expect.any(String)],
+                ['age', expect.any(Number)],
+                ['image', expect.any(String)],
+                ['description', expect.any(String)]]);
+            return expect(fetchAnimals())
+                    .resolves
+                    .toIncludeAllMembers([serviceAAnimalMatcher, serviceAAnimalMatcher, serviceAAnimalMatcher]);
+        });
+
+        it('validates the interactions and creates a contract', () => {
+            return provider.verify()
+        });
+    });
+
+    describe('when a request for hedgehogs is made', () => {
+
+        beforeAll(() => {
+            const hedgehogInteraction = {
                 state: 'there are 2 hedgehogs and 1 cat',
                 uponReceiving: 'a request for animals',
                 withRequest: {
@@ -43,12 +93,10 @@ describe('Contract with Service C', () => {
                     },
                 }
             };
-            return provider
-                    .setup()
-                    .then(() => provider.addInteraction(interactionWithFilter));
+            return provider.addInteraction(hedgehogInteraction);
         });
 
-        it('will receive a list of hedgehogs with pictures', () => {
+        it('can process the JSON payload from the provider', () => {
             const serviceAAnimalMatcher = expect.toContainAllEntries([
                 ['name', expect.any(String)],
                 ['age', expect.any(Number)],
@@ -59,8 +107,14 @@ describe('Contract with Service C', () => {
                     .toIncludeSameMembers([serviceAAnimalMatcher, serviceAAnimalMatcher]);
         });
 
-        afterEach(() => {
-            provider.finalize();
-        })
+        it('validates the interactions and creates a contract', () => {
+            return provider.verify()
+        });
+
+    });
+
+    afterAll(() => {
+        provider.finalize();
     })
+
 });

@@ -8,6 +8,73 @@
   "interactions": [
     {
       "description": "a request for animals",
+      "providerState": "there are >= 3 animals",
+      "request": {
+        "method": "GET",
+        "path": "/"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": [
+          {
+            "name": "Hufflepuff",
+            "kind": "cat",
+            "age": 4,
+            "description": "This is a description of Hufflepuff",
+            "image": {
+              "path": "/path/to/image"
+            }
+          },
+          {
+            "name": "Hufflepuff",
+            "kind": "cat",
+            "age": 4,
+            "description": "This is a description of Hufflepuff",
+            "image": {
+              "path": "/path/to/image"
+            }
+          },
+          {
+            "name": "Hufflepuff",
+            "kind": "cat",
+            "age": 4,
+            "description": "This is a description of Hufflepuff",
+            "image": {
+              "path": "/path/to/image"
+            }
+          }
+        ],
+        "matchingRules": {
+          "$.body": {
+            "min": 3
+          },
+          "$.body[*].*": {
+            "match": "type"
+          },
+          "$.body[*].name": {
+            "match": "type"
+          },
+          "$.body[*].kind": {
+            "match": "type"
+          },
+          "$.body[*].age": {
+            "match": "type"
+          },
+          "$.body[*].description": {
+            "match": "type"
+          },
+          "$.body[*].image": {
+            "match": "type"
+          }
+        }
+      },
+      "metadata": null
+    },
+    {
+      "description": "a request for animals",
       "providerState": "there are 2 hedgehogs and 1 cat",
       "request": {
         "method": "GET",
