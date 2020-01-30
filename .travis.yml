@@ -2,9 +2,13 @@ language: node_js
 
 script:
   - yarn test
+  - yarn pact:test
+  - yarn pact:publish
 
 deploy:
   provider: heroku
+  on:
+    all_branches: true
   app: contract-test-service-a
   api_key:
     secure: ax+8QCLcu5WF96nUUD4OLCiqsIR9hSo/zcGhTZyt7V9S6dzsmdFt8AxZei5kL08GN8U8rBw0N8F8lJSb5bnr9lQzY26f4QOGE1Xf4Yqdj2dEzBx6NHAHRNTswL0qZV+LGzjowFEvbMAR02pRsnCfDvzATpSFng6dtWQu/UHccVNDoPIicmK2/BnX4qTG0a0aXr6+d8RElCEGz+E9mSNblyu5D0H2dzhruEIBICuGTg+uAw6I1mDgnIpAL1BGUoHLIVBSGcmyi3Blwk6BRIT982U+A6Zb3sG/VA5LUedhEQr08RM4+dYevOdjgF39leU5NfnizWDERGg+3oMG2SWM3FcYJ3Qia+8nLze5513dO1s0BauJ8c/7mfNnmsN8DSMAga68SVRU2y3oXS1872PCdbZX05jTb+g9HlCye8vl6sLkC+/BUTpS3/8JS2eBQCMvIS+Ldifdd1j7drvTEtCUrvrl2DJzgQHVqtBLE0JDWP6AbZ0Q9UpTgQfvF/QMyDnzjMPQvk//F90yu7P0hERxBFTPmwYcD41donlxRpjsedbSHvIVGUmTU/PgYTgG+46AvS8cIaAoUjBbajR774vkloRozM05ptjsYGc5gfSzpBT5NS4DhBYSMPXl0gtNDNcDRcZdg5EY2hYW/yeG8MvpfEeJ2eknyO6lhmUwUQpn8TM=
