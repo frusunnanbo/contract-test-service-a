@@ -9,7 +9,7 @@
   "private": true,
   "scripts": {
     "test": "jest --passWithNoTests",
-    "dev": "DEBUG=service-a* API_ENDPOINT='http://contract-test-service-c.herokuapp.com' nodemon src/app.js",
+    "dev": "DEBUG=service-a* API_ENDPOINT='http://localhost:8080' nodemon src/app.js",
     "start": "DEBUG=service-a* node src/app.js"
   },
   "dependencies": {
