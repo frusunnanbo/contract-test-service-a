@@ -11,6 +11,7 @@
     "test": "jest --testPathIgnorePatterns=[.*.pact.spec.js,/node_modules/] --passWithNoTests",
     "pact:test": "API_ENDPOINT='http://localhost:2345' jest --runInBand --testPathPattern=.*.pact.spec.js",
     "pact:publish": "node publish.js",
+    "pact:can-i-deploy": "pact-broker can-i-deploy --pacticipant 'Service A' --latest --broker-base-url https://frusunnanbo.pact.dius.com.au --retry-while-unknown=300",
     "dev": "DEBUG=service-a* API_ENDPOINT='http://localhost:8080' nodemon src/app.js",
     "start": "DEBUG=service-a* node src/app.js"
   },
